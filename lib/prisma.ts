@@ -6,12 +6,12 @@ let prisma: PrismaClient;
 if (process.env.NODE_ENV === 'production') {
   prisma = new PrismaClient();
 } else {
-  // @ts-expect-error
+  // @ts-expect-error global değişken
   if (!global.prisma) {
-    // @ts-expect-error
+    // @ts-expect-error global değişken
     global.prisma = new PrismaClient();
   }
-  // @ts-expect-error
+  // @ts-expect-error global değişken
   prisma = global.prisma;
 }
 
