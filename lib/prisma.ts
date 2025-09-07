@@ -1,5 +1,4 @@
-
-//her api çağrısında yeni bir prisma oluşmasını önler
+// her api çağrısında yeni bir prisma oluşmasını önler
 import { PrismaClient } from '@prisma/client';
 
 let prisma: PrismaClient;
@@ -7,12 +6,12 @@ let prisma: PrismaClient;
 if (process.env.NODE_ENV === 'production') {
   prisma = new PrismaClient();
 } else {
-  // @ts-ignore
+  // @ts-expect-error
   if (!global.prisma) {
-    // @ts-ignore
+    // @ts-expect-error
     global.prisma = new PrismaClient();
   }
-  // @ts-ignore
+  // @ts-expect-error
   prisma = global.prisma;
 }
 
